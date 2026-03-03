@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  backend:
+    # TODO: добавить образ и команды запуска FastAPI‑приложения
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+
+  frontend:
+    # TODO: добавить образ и команды запуска Next.js‑приложения
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+
+  # TODO: при необходимости добавить PostgreSQL, Redis и другие сервисы
+
