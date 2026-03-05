@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     database_url: AnyUrl
     redis_url: AnyUrl | None = None
     telegram_bot_token: str | None = None
+    openai_api_key: str | None = None
     allowed_origins: list[str] = ["http://localhost:3000"]
 
     class Config:
