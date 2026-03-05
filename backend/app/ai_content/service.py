@@ -26,10 +26,10 @@ async def ensure_quota(session: AsyncSession, user_id: int) -> None:
 
 async def generate_with_openai(prompt: str) -> str:
     settings = get_settings()
-    if not settings.telegram_bot_token:
+    if not settings.openai_api_key:
         raise RuntimeError("AI provider key is not configured")
     headers = {
-        "Authorization": f"Bearer {settings.telegram_bot_token}",
+        "Authorization": f"Bearer {settings.openai_api_key}",
         "Content-Type": "application/json",
     }
     payload = {

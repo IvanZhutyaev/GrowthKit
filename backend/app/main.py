@@ -6,6 +6,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from .config import get_settings
 from .db import engine, Base
 from .auth.router import router as auth_router
+from .analytics.router import router as analytics_router
+from .channel_search.router import router as channel_search_router
+from .ai_content.router import router as ai_content_router
 
 
 @asynccontextmanager
@@ -26,6 +29,9 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
     app.include_router(auth_router, prefix="/auth", tags=["auth"])
+    app.include_router(analytics_router, prefix="/analytics", tags=["analytics"])
+    app.include_router(channel_search_router, prefix="/channel-search", tags=["channel_search"])
+    app.include_router(ai_content_router, prefix="/ai-content", tags=["ai_content"])
     return app
 
 
